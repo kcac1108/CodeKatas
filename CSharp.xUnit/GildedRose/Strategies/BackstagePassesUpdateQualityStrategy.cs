@@ -1,32 +1,24 @@
+using GildedRoseKata.Models;
+
 namespace GildedRoseKata.Strategies;
 
 public class BackstagePassesUpdateQualityStrategy : IUpdateQuality
 {
     public void UpdateItemQuality(Item item)
     {
+        item.IncreaseQuality();
 
-        if (item.Quality < 50)
+        if (item.SellIn < 11)
         {
-            item.Quality++;
-            
-            if (item.SellIn < 11)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality++;
-                }
-            }
-
-            if (item.SellIn < 6)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality++;
-                }
-            }
+            item.IncreaseQuality();
         }
 
-        item.SellIn--;
+        if (item.SellIn < 6)
+        {
+            item.IncreaseQuality();
+        }
+
+        item.DecreaseSellIn();
 
         if (item.SellIn < 0)
         {

@@ -1,15 +1,19 @@
+using GildedRoseKata.Models;
+
 namespace GildedRoseKata.Strategies;
 
 public class ConjuredUpdateQualityStrategy : IUpdateQuality
 {
 	public void UpdateItemQuality(Item item)
 	{
-		item.SellIn--;
-		item.Quality -= 2;
+		item.DecreaseQuality();
+		item.DecreaseQuality();
 
+		item.DecreaseSellIn();
+		
 		if (item.SellIn < 0)
 		{
-			item.Quality -= 2;
+			item.DecreaseQuality();
 		}
 	}
 }

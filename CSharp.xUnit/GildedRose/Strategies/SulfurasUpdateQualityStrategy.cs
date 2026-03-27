@@ -1,3 +1,5 @@
+using GildedRoseKata.Models;
+
 namespace GildedRoseKata.Strategies;
 
 public class SulfurasUpdateQualityStrategy : IUpdateQuality

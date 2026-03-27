@@ -1,4 +1,5 @@
 ﻿using GildedRoseKata;
+using GildedRoseKata.Models;
 
 using System;
 using System.IO;
@@ -14,9 +15,9 @@ namespace GildedRoseTests;
 public class ApprovalTest
 {
     [Fact]
-    public Task Foo()
+    public Task StandardItem()
     {
-        Item[] items = [new Item { Name = "foo", SellIn = 0, Quality = 0 }];
+        Item[] items = [new Item { Name = "Standard Item", SellIn = 10, Quality = 20 }];
         GildedRose app = new(items);
         app.UpdateQuality();
         

@@ -1,4 +1,4 @@
-using System.ComponentModel;
+using GildedRoseKata.Models;
 
 namespace GildedRoseKata.Strategies;
 
@@ -6,19 +6,12 @@ public class AgedBrieUpdateQualityStrategy : IUpdateQuality
 {
     public void UpdateItemQuality(Item item)
     {
-        item.SellIn--;
-
-        if(item.Quality < 50)
-            {
-                item.Quality++;
-            }
+        item.IncreaseQuality();
+        item.DecreaseSellIn();
 
         if(item.SellIn < 0)
         {
-            if(item.Quality < 50)
-            {
-                item.Quality++;
-            }
+            item.IncreaseQuality();
         }
     }
 }

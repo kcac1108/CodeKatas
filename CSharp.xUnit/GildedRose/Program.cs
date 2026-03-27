@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GildedRoseKata.Models;
 
 namespace GildedRoseKata;
 
@@ -13,10 +14,10 @@ public class Program
 
         var app = new GildedRose(items);
 
-        GildedRose(app, args, items);
+        RunSimulation(app, args, items);
     }
 
-    private static void GildedRose(GildedRose app, string[] args, IList<Item> items)
+    private static void RunSimulation(GildedRose app, string[] args, IList<Item> items)
     {
         int days = 2;
         if (args.Length > 0)
@@ -26,12 +27,14 @@ public class Program
 
         for (var i = 0; i < days; i++)
         {
-            Console.WriteLine("-------- day " + i + " --------");
+            Console.WriteLine($"-------- day {i} --------");
             Console.WriteLine("name, sellIn, quality");
-            for (var j = 0; j < items.Count; j++)
+
+            foreach (var item in items)
             {
-                Console.WriteLine(items[j].Name + ", " + items[j].SellIn + ", " + items[j].Quality);
+                Console.WriteLine($"{item.Name}, {item.SellIn}, {item.Quality}");
             }
+
             Console.WriteLine("");
             app.UpdateQuality();
         }
@@ -61,7 +64,6 @@ public class Program
                 SellIn = 5,
                 Quality = 49
             },
-            // this conjured item does not work properly yet
             new() {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
         ];
     }

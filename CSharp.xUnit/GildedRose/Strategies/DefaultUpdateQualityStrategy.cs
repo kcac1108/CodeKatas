@@ -1,22 +1,17 @@
+using GildedRoseKata.Models;
+
 namespace GildedRoseKata.Strategies;
 
 public class DefaultUpdateQualityStrategy : IUpdateQuality
 {
 	public void UpdateItemQuality(Item item)
 	{
-		item.SellIn--;
-		
-		if (item.Quality > 0)
-		{
-			item.Quality--;
-
-			if (item.SellIn < 0)
-			{
-				if (item.Quality > 0)
-				{
-					item.Quality--;
-				}
-			}
-		}
+        item.DecreaseQuality();
+        item.DecreaseSellIn();
+        
+        if (item.SellIn < 0)
+        {
+            item.DecreaseQuality();
+        }
 	}
 }
