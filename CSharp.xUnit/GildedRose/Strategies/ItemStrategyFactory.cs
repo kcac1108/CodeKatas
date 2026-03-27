@@ -1,5 +1,4 @@
 using GildedRoseKata.Models;
-using GildedRoseKata.Strategies;
 
 namespace GildedRoseKata.Strategies;
 
