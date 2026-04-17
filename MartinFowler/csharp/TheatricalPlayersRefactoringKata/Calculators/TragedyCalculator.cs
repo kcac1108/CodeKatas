@@ -1,3 +1,5 @@
+using TheatricalPlayersRefactoringKata.Models;
+
 namespace TheatricalPlayersRefactoringKata.Calculators
 {
     public class TragedyCalculator : PerformanceCalculator
